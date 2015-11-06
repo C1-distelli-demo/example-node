@@ -3,7 +3,6 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var timeController = require('./controllers/time');
 var homeController = require('./controllers/home');
 
 app.use(express.static(__dirname + '/public'));
@@ -13,7 +12,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.set('views', path.join(__dirname, 'views'));
-app.get('/', homeController.index, timeController.getDate);
+app.get('/', homeController.index);
 app.set('view engine', 'jade');
 
 app.post('/catch', function(request, response){
@@ -30,5 +29,5 @@ app.use(function(req, res, next) {
 
 var server = app.listen(process.env.PORT || 3000, function (){
   var port = server.address().port;
-  console.log('Magic is happening on port', port, " at ", timeController.getDate());
+  console.log('Magic is happening on port', port);
 });
