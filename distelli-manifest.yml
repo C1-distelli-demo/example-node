@@ -5,13 +5,10 @@ c1distellidemo/example-node:
     - echo "---Preparing for Build---"
     - set +e; source /etc/profile; set -e
     - nvm install v4.2.1
-    
+
   Build:
     - echo "---Building---"
     - npm install
-    - cp node_modules/newrelic/newrelic.js .
-    - sed -i "s|license key here|$NR_INSTALL_KEY|g" newrelic.js
-    - sed -i "s|My Application|$NR_APP_NAME|g" newrelic.js
     - echo "--Testing--"
     - npm test
 
@@ -43,11 +40,11 @@ c1distellidemo/example-node:
     - NR_APP_NAME: "SET_THIS_IN_DISTELLI"
     - NR_INSTALL_KEY: "SET_THIS_IN_DISTELLI"
     - PORT: "8000"
-    
+
   Exec:
     - set +e; source ~/.nvm/nvm.sh; set -e
     - nvm use v4.2.1
     - node app.js
-    
+
 
 
