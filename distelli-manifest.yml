@@ -33,13 +33,15 @@ c1distellidemo/example-node:
 
   PostInstall:
     - echo "Begin PostInstall"
+    - publicip=$(curl -s ident.me)
+    - echo "Public IP http://$publicip:$PORT"
 
   Env:
     - DISTELLI_INSTALLVIEW: "templates/notset.json"
     - NR_INSTALL_SILENT: "TRUE"
     - NR_APP_NAME: "SET_THIS_IN_DISTELLI"
     - NR_INSTALL_KEY: "SET_THIS_IN_DISTELLI"
-    - PORT: "8000"
+    - PORT: "3000"
 
   Exec:
     - set +e; source ~/.nvm/nvm.sh; set -e
