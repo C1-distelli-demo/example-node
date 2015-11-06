@@ -29,5 +29,9 @@ app.use(function(req, res, next) {
 
 var server = app.listen(process.env.PORT || 3000, function (){
   var port = server.address().port;
-  console.log('Magic is happening on port', port);
+  console.log('Magic is happening on port ' + port + ".");
 });
+
+exports.closeServer = function(){
+  server.close();
+};

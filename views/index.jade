@@ -7,9 +7,9 @@ html
     link(rel='stylesheet', href='./style.css')
   body
     #message
-      {{#display_msg}}
-        <p>Running in the {{this_env}} environment</p>
-      {{/display_msg}}
+      | {{#display_msg}}
+      <p>Running in the {{this_env}} environment</p>
+      | {{/display_msg}}
     #container
       h1 Just a Simple Node + Express App
       h1 #{date}
